@@ -8,6 +8,7 @@
   "license": "Apache 2.0",
   "private": true,
   "dependencies": {
+    "babel-plugin-transform-object-assign": "^6.22.0",
     "video.js": "^5.15.1"
   },
   "devDependencies": {
@@ -17,7 +18,7 @@
     "uglify-js": "^3.3.4"
   },
   "scripts": {
-    "transpile": "babel src/sneakpeek.js --presets babel-preset-es2015 -o dist/videojs-sneakpeek.js",
+    "transpile": "babel src/sneakpeek.js --presets babel-preset-es2015 --plugins transform-object-assign -o dist/videojs-sneakpeek.js",
     "uglify": "uglifyjs dist/videojs-sneakpeek.js -m -o dist/videojs-sneakpeek.min.js",
     "clean-css": "cp src/sneakpeek.css dist/sneakpeek.css && cleancss src/sneakpeek.css -o dist/sneakpeek.min.css",
     "build": "mkdir -p dist && yarn run transpile && yarn run uglify && yarn run clean-css"

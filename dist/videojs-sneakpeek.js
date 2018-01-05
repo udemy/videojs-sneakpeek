@@ -1,8 +1,14 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _video = require('video.js');
 
 var _video2 = _interopRequireDefault(_video);
+
+var _window = require('global/window');
+
+var _window2 = _interopRequireDefault(_window);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14,8 +20,8 @@ var defaults = {
 
 function getComputedStyle(el, pseudo) {
     return function (prop) {
-        if (window.getComputedStyle) {
-            return window.getComputedStyle(el, pseudo)[prop];
+        if (_window2.default.getComputedStyle) {
+            return _window2.default.getComputedStyle(el, pseudo)[prop];
         }
         return el.currentStyle[prop];
     };
@@ -29,10 +35,10 @@ function offsetParent(el) {
 }
 
 function getScrollOffset() {
-    if (window.pageXOffset) {
+    if (_window2.default.pageXOffset) {
         return {
-            x: window.pageXOffset,
-            y: window.pageYOffset
+            x: _window2.default.pageXOffset,
+            y: _window2.default.pageYOffset
         };
     }
     return {
@@ -75,11 +81,11 @@ function parseImageLink(imglocation) {
     };
 }
 
-_video2.default.plugin('thumbnails', function (options) {
+_video2.default.plugin('sneakpeek', function (options) {
     var tracks = void 0,
         thumbTrack = void 0;
     defaults.basePath = options.basePath || defaults.basePath;
-    var settings = Object.assign({}, defaults, options);
+    var settings = _extends({}, defaults, options);
     var player = this;
 
     player.ready(function () {
