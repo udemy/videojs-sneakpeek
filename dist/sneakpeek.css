@@ -1,0 +1,27 @@
+.vjs-thumbnail-holder {
+    border: 2px solid #000;
+    position: absolute;
+    overflow: hidden;
+    left: -1000px;
+    bottom: 40px;
+}
+
+.vjs-thumbnail {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: opacity .2s ease;
+    width: auto !important;
+    max-width: none;
+}
+
+.vjs-progress-control:hover .vjs-thumbnail,
+.vjs-progress-control.fake-active .vjs-thumbnail,
+.vjs-progress-control:active .vjs-thumbnail {
+    opacity: 1;
+}
+
+.vjs-progress-control:hover .vjs-thumbnail:hover,
+.vjs-progress-control:active .vjs-thumbnail:active {
+    opacity: 0;
+}
