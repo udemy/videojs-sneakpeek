@@ -7,6 +7,12 @@ const defaults = {
     basePath: '',
 };
 
+// VideoJS 5 and 6 cross-compatibility
+function enablePlugin(name, plugin) {
+    const registerFn = videojs.registerPlugin || videojs.plugin;
+    registerFn(name, plugin)
+}
+
 function getComputedStyle(el, pseudo) {
     return function (prop) {
         if (window.getComputedStyle) {
@@ -70,7 +76,7 @@ function parseImageLink(imglocation) {
     };
 }
 
-videojs.plugin('sneakpeek', function (options) {
+function sneakpeek(options) {
     defaults.basePath = options.basePath || defaults.basePath;
 
     const settings = Object.assign({}, defaults, options);
@@ -245,4 +251,8 @@ videojs.plugin('sneakpeek', function (options) {
         progressControl.on('touchend', moveCancel);
         player.on('userinactive', moveCancel);
     }
-});
+}
+
+enablePlugin('sneakpeek', sneakpeek);
+
+export default sneakpeek;
