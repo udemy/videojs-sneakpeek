@@ -1,16 +1,10 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _video = require('video.js');
-
-var _video2 = _interopRequireDefault(_video);
-
-var _window = require('global/window');
-
-var _window2 = _interopRequireDefault(_window);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var defaults = {
     width: 0,
@@ -20,8 +14,8 @@ var defaults = {
 
 function getComputedStyle(el, pseudo) {
     return function (prop) {
-        if (_window2.default.getComputedStyle) {
-            return _window2.default.getComputedStyle(el, pseudo)[prop];
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(el, pseudo)[prop];
         }
         return el.currentStyle[prop];
     };
@@ -35,10 +29,10 @@ function offsetParent(el) {
 }
 
 function getScrollOffset() {
-    if (_window2.default.pageXOffset) {
+    if (window.pageXOffset) {
         return {
-            x: _window2.default.pageXOffset,
-            y: _window2.default.pageYOffset
+            x: window.pageXOffset,
+            y: window.pageYOffset
         };
     }
     return {
@@ -81,7 +75,7 @@ function parseImageLink(imglocation) {
     };
 }
 
-_video2.default.plugin('sneakpeek', function (options) {
+function sneakpeek(options) {
     defaults.basePath = options.basePath || defaults.basePath;
 
     var settings = _extends({}, defaults, options);
@@ -252,4 +246,6 @@ _video2.default.plugin('sneakpeek', function (options) {
         progressControl.on('touchend', moveCancel);
         player.on('userinactive', moveCancel);
     }
-});
+}
+
+exports.default = sneakpeek;

@@ -1,17 +1,8 @@
-import videojs from 'video.js';
-import window from 'global/window';
-
 const defaults = {
     width: 0,
     height: 0,
     basePath: '',
 };
-
-// VideoJS 5 and 6 cross-compatibility
-function enablePlugin(name, plugin) {
-    const registerFn = videojs.registerPlugin || videojs.plugin;
-    registerFn(name, plugin)
-}
 
 function getComputedStyle(el, pseudo) {
     return function (prop) {
@@ -252,7 +243,5 @@ function sneakpeek(options) {
         player.on('userinactive', moveCancel);
     }
 }
-
-enablePlugin('sneakpeek', sneakpeek);
 
 export default sneakpeek;
