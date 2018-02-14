@@ -48,6 +48,12 @@ Full object example:
 </video>
 ```
 
+What's different from [this fork](https://github.com/dirkjanm/videojs-vtt-thumbnails)?
+----------------
+
+This repository is actively being maintained by us. This includes unit tests, bug fixes and performance improvements where possible. We also aim to support both VideoJS 5 and 6. 
+
+
 Contributing
 ----------------
 
