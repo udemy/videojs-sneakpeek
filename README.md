@@ -1,6 +1,6 @@
 Video.js Sneakpeek
 ===================
-A VideoJS plugin that enables showing a sneakpeek image on above the scrubber.
+A VideoJS plugin that enables showing a sneakpeek image above the scrubber.
 
 Using the Plugin
 ----------------
