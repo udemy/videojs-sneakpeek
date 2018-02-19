@@ -7,8 +7,7 @@ const defaults = {
     basePath: '',
 };
 
-// VideoJS 5 and 6 cross-compatibility
-function enablePlugin(name, plugin) {
+export function enablePlugin(name, plugin) {
     const registerFn = videojs.registerPlugin || videojs.plugin;
     registerFn(name, plugin)
 }
@@ -76,7 +75,7 @@ function parseImageLink(imglocation) {
     };
 }
 
-function sneakpeek(options) {
+export default function sneakpeek(options) {
     defaults.basePath = options.basePath || defaults.basePath;
 
     const settings = Object.assign({}, defaults, options);
@@ -252,7 +251,3 @@ function sneakpeek(options) {
         player.on('userinactive', moveCancel);
     }
 }
-
-enablePlugin('sneakpeek', sneakpeek);
-
-export default sneakpeek;

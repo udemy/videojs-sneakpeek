@@ -1,6 +1,13 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.enablePlugin = enablePlugin;
+exports.default = sneakpeek;
 
 var _video = require('video.js');
 
@@ -17,6 +24,11 @@ var defaults = {
     height: 0,
     basePath: ''
 };
+
+function enablePlugin(name, plugin) {
+    var registerFn = _video2.default.registerPlugin || _video2.default.plugin;
+    registerFn(name, plugin);
+}
 
 function getComputedStyle(el, pseudo) {
     return function (prop) {
@@ -81,7 +93,7 @@ function parseImageLink(imglocation) {
     };
 }
 
-_video2.default.plugin('sneakpeek', function (options) {
+function sneakpeek(options) {
     defaults.basePath = options.basePath || defaults.basePath;
 
     var settings = _extends({}, defaults, options);
@@ -252,4 +264,4 @@ _video2.default.plugin('sneakpeek', function (options) {
         progressControl.on('touchend', moveCancel);
         player.on('userinactive', moveCancel);
     }
-});
+}
