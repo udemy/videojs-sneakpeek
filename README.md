@@ -24,7 +24,11 @@ var video = videojs('#video', {
       sneakpeek: {
         width: 180,
         height: 100,
-        basePath: 'http://your-image-host.com/'
+        basePath: 'http://your-image-host.com/',
+        urlParams: {
+            someKey: 'abc',
+            anotherKey: 123
+        }
       }
     }
   });

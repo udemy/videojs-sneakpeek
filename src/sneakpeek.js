@@ -5,6 +5,7 @@ const defaults = {
     width: 0,
     height: 0,
     basePath: '',
+    urlParams: {},
 };
 
 export function enablePlugin(name, plugin) {
@@ -39,6 +40,17 @@ function getScrollOffset() {
         x: document.documentElement.scrollLeft,
         y: document.documentElement.scrollTop,
     };
+}
+
+function parseParams(params) {
+    const qs = Object.entries(params).map(([key, value]) => {
+        return `${key}=${value}`
+    }).join('&');
+
+    if (qs !== '') {
+        return `?${qs}`
+    }
+    return '';
 }
 
 function parseImageLink(imglocation) {
@@ -197,7 +209,7 @@ export default function sneakpeek(options) {
                     baseUrl = player.currentSrc();
                     baseUrl = baseUrl.substring(0, baseUrl.lastIndexOf('/'));
                 }
-                img.src = baseUrl + imageSettings.src;
+                img.src = baseUrl + imageSettings.src + parseParams(settings.urlParams);
             }
 
             // Fall back to plugin defaults in case no height/width is specified
