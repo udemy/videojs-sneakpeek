@@ -203,10 +203,8 @@ function sneakpeek(options) {
 
             // Apply updated styles to the sneakpeek if necessary
             // mouseTime is the position of the mouse along the progress control bar
-            // `left` applies to the mouse position relative to the player so we need
-            // to remove the progress control's left offset to know the mouse position
-            // relative to the progress control
-            var mouseTime = Math.floor((left - progressControl.el().offsetLeft) / progressControl.width() * duration);
+            // `left` applies to the mouse position relative to the player
+            var mouseTime = Math.floor(left / progressControl.width() * duration);
 
             // Now check which of the cues applies
             var cueLength = sneakpeekTrack && sneakpeekTrack.cues.length;
