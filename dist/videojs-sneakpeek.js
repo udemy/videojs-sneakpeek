@@ -135,7 +135,7 @@ function sneakpeek(options) {
 
         // Tracks is an Array-like object so we can't use .find
         for (var i = 0; i < tracks.length; i++) {
-            if (tracks[i].kind === 'metadata') {
+            if (tracks[i].kind === 'metadata' && tracks[i].label === 'sneakpeek') {
                 sneakpeekTrack = tracks[i];
                 // Chrome needs this
                 sneakpeekTrack.mode = 'hidden';
