@@ -38,7 +38,7 @@ The thumbnails need to be added with a VTT file. For this file, the [specificati
 The VTT file is added as a metadata track to the video object, for example:
 
 ```html
-<track kind="metadata" src="oceans.vtt"></track>
+<track kind="metadata" label="sneakpeek" src="oceans.vtt"></track>
 ```
 
 Full object example:
@@ -48,7 +48,7 @@ Full object example:
        class="video-js vjs-default-skin"
        controls>
   <source src="video.mp4" type="video/mp4" />
-  <track kind="metadata" src="oceans.vtt"></track>
+  <track kind="metadata" label="sneakpeek" src="oceans.vtt"></track>
 </video>
 ```
 
