@@ -182,7 +182,7 @@ export default function sneakpeek(options) {
             const mouseTime = Math.floor(left / progressControl.width() * duration);
 
             // Now check which of the cues applies
-            const cueLength = sneakpeekTrack && sneakpeekTrack.cues.length;
+            const cueLength = sneakpeekTrack && sneakpeekTrack.cues && sneakpeekTrack.cues.length;
             let i = 0;
             let imageSettings;
             while (i < cueLength) {

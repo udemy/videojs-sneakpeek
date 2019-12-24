@@ -1,6 +1,6 @@
 {
   "name": "videojs-sneakpeek",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "VideoJS sneakpeek plugin",
   "main": "dist/videojs-sneakpeek.min.js",
   "repository": "https://github.com/udemy/videojs-sneakpeek",
