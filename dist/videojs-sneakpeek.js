@@ -207,7 +207,7 @@ function sneakpeek(options) {
             var mouseTime = Math.floor(left / progressControl.width() * duration);
 
             // Now check which of the cues applies
-            var cueLength = sneakpeekTrack && sneakpeekTrack.cues.length;
+            var cueLength = sneakpeekTrack && sneakpeekTrack.cues && sneakpeekTrack.cues.length;
             var i = 0;
             var imageSettings = void 0;
             while (i < cueLength) {
