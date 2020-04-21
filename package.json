@@ -15,8 +15,8 @@
     "@babel/cli": "7.8.4",
     "@babel/plugin-transform-object-assign": "7.8.3",
     "@babel/preset-env": "7.8.7",
-    "clean-css-cli": "^4.1.10",
-    "uglify-js": "^3.3.4"
+    "clean-css-cli": "4.3.0",
+    "uglify-js": "3.7.7"
   },
   "scripts": {
     "transpile": "babel src/sneakpeek.js --presets @babel/preset-env --plugins @babel/plugin-transform-object-assign -o dist/videojs-sneakpeek.js",
