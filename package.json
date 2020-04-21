@@ -11,14 +11,15 @@
     "video.js": "^5.15.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-assign": "^6.22.0",
-    "babel-preset-es2015": "^6.24.1",
+    "@babel/core": "7.8.7",
+    "@babel/cli": "7.8.4",
+    "@babel/plugin-transform-object-assign": "7.8.3",
+    "@babel/preset-env": "7.8.7",
     "clean-css-cli": "^4.1.10",
     "uglify-js": "^3.3.4"
   },
   "scripts": {
-    "transpile": "babel src/sneakpeek.js --presets babel-preset-es2015 --plugins transform-object-assign -o dist/videojs-sneakpeek.js",
+    "transpile": "babel src/sneakpeek.js --presets @babel/preset-env --plugins @babel/plugin-transform-object-assign -o dist/videojs-sneakpeek.js",
     "uglify": "uglifyjs dist/videojs-sneakpeek.js -m -o dist/videojs-sneakpeek.min.js",
     "clean-css": "cp src/sneakpeek.css dist/sneakpeek.css && cleancss src/sneakpeek.css -o dist/sneakpeek.min.css",
     "build": "mkdir -p dist && yarn run transpile && yarn run uglify && yarn run clean-css"
